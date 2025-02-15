@@ -1,0 +1,96 @@
+{% extends "/layout.html" %}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('static/assets/img/about-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>Admin Panel</h1>
+                    <span class="subheading">Manage your post and change them</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1>Basic Actions</h1>
+                <a class="btn btn-primary" href="/dashboard">Dashboard Home</a>
+                <a class="btn btn-primary" href="/logout">Logout</a>
+                <hr>
+                <h1>Add/Edit Posts</h1>
+                <form id="contactForm" action="/edit/{{sno}}" method="POST" data-sb-form-api-token="API_TOKEN">
+                    <div class="form-floating">
+                        <input class="form-control" id="title" name="title" type="text"
+                            placeholder="Enter your title..." data-sb-validations="required" value="{{post.title}}" />
+                        <label for="title">Title</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control" id="subheading" name="subheading" type="text"
+                            placeholder="Enter your email..." data-sb-validations="required,email"
+                            value="{{post.subheading}}" />
+                        <label for="subheading">Subheading</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control" id="slug" name="slug" type="text"
+                            placeholder="Enter your phone number..." data-sb-validations="required"
+                            value="{{post.slug}}" />
+                        <label for="slug">Slug</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" id="content" name="content"
+                            placeholder="Enter your content here..." style="height: 12rem"
+                            data-sb-validations="required">{{post.content}}</textarea>
+                        <label for="content">Content</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control" id="by" name="by" type="text" placeholder="Enter your title..."
+                            data-sb-validations="required" value="{{post.by}}" />
+                        <label for="by">By</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control" id="img_file" name="img_file" placeholder="img_file"
+                            value="{{post.img_file}}">
+                        <label for="img_file">Image File</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    <br />
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a
+                                href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage">
+                        <div class="text-center text-danger mb-3">Error sending message!</div>
+                    </div>
+                    <!-- Submit Button-->
+                    <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
