@@ -12,7 +12,7 @@ params = {
     "local_uri": os.getenv("LOCAL_URI"),
     "prod_uri": os.getenv("PROD_URI"),
     "fb_url": os.getenv("FB_URL"),
-    "tw_url": os.getenv("TW_URL"),
+    "li_url": os.getenv("LI_URL"),
     "gh_url": os.getenv("GH_URL"),
     "blog_name": os.getenv("BLOG_NAME"),
     "tag_line": os.getenv("TAG_LINE"),
